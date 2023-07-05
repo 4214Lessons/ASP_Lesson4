@@ -1,0 +1,47 @@
+﻿@using System.Text.Json
+@*@model Product
+
+<h1>Product:</h1>
+<label>Id: </label> <p>@Model.Id</p>
+<label>Name: </label> <p>@Model.Name</p>
+<label>Price: </label> <p>@Model.Price</p>*@
+
+@*<h1>Product:</h1>
+<label>Id: </label> <p>@ViewBag.Product.Id</p>
+<label>Name: </label> <p>@ViewBag.Product.Name</p>
+<label>Price: </label> <p>@ViewBag.Product.Price</p>*@
+
+@*@{
+    Product? product = ViewData["Product"] as Product;
+    <h1>Product:</h1>
+    <label>Id: </label> <p>@product?.Id</p>
+    <label>Name: </label> <p>@product?.Name</p>
+    <label>Price: </label> <p>@product?.Price</p>
+}*@
+
+@*@{
+    Product? product = JsonSerializer.Deserialize<Product>(TempData["Product"]?.ToString() ?? "");
+    if (product is not null)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@product.Price</h6>
+                
+                <a href="#" class="card-link">Show Product</a>
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+    }
+
+}*@
+@model Product
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.Price</h6>
+
+        <a href="#" class="card-link">Delete</a>
+    </div>
+</div>
